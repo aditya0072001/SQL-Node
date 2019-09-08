@@ -28,8 +28,8 @@ app.get('/createdb', (req, res) => {
 app.get('/maket', (res, rep) => {
     // let s = "CREATE TABLE Students(Id int AUTO_INCREMENT, Sname varchar(100),Marks int,PRIMARY KEY(Id));"
     let value = {
-        Sname: 'Random',
-        Marks: 78
+        Sname: 'Bad',
+        Marks: 89
     };
     let s = "INSERT INTO students SET ?";
     myConnection.query(s, value, (err, result) => {
