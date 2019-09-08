@@ -25,4 +25,8 @@ app.get('/createdb', (req, res) => {
     });
 });
 
+app.post('/', (res, rep) => {
+
+});
+
 app.listen(3000, () => console.log("Server running on port 3000"));
