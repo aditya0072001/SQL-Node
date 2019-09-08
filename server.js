@@ -1,7 +1,19 @@
 const express = require('express');
 const sql = require('mysql');
+const path = require('path');
+const bodyParser = require('body-parser');
+
 
 var app = express();
+
+var jsonParser = bodyParser.json();
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+app.get('/', (res, rep) => {
+    rep.sendFile('index.html', { root: path.join(__dirname, ) });
+});
 //databse connection details
 var myConnection = sql.createConnection({
     host: 'localhost',
@@ -25,11 +37,13 @@ app.get('/createdb', (req, res) => {
     });
 });
 //made table then inserted data
-app.get('/maket', (res, rep) => {
+app.post('/maket', urlencodedParser, (res, rep) => {
     // let s = "CREATE TABLE Students(Id int AUTO_INCREMENT, Sname varchar(100),Marks int,PRIMARY KEY(Id));"
+    let name = res.body.name;
+    let marks = res.body.marks;
     let value = {
-        Sname: 'Bad',
-        Marks: 89
+        Sname: name,
+        Marks: marks
     };
     let s = "INSERT INTO students SET ?";
     myConnection.query(s, value, (err, result) => {
@@ -39,12 +53,15 @@ app.get('/maket', (res, rep) => {
 });
 
 //display table with data
-app.get('/', (res, rep) => {
+app.get('/data', (res, rep) => {
     let s = "SELECT * FROM students";
+    let r;
     myConnection.query(s, (err, result, fields) => {
         if (err) throw err;
         console.log(result);
+        r = result;
     });
+    rep.send(r);
 });
 //port for server
 app.listen(3000, () => console.log("Server running on port 3000"));
