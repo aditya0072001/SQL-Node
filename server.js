@@ -34,5 +34,16 @@ app.get('/maket', (res, rep) => {
 
     });
 });
+
+//display table with data
+app.get('/', (res, rep) => {
+    let r;
+    let s = "SELECT * FROM students";
+    myConnection.query(s, (err, result) => {
+        if (err) throw err;
+        r = result;
+    });
+    console.log(r);
+});
 //port for server
 app.listen(3000, () => console.log("Server running on port 3000"));
