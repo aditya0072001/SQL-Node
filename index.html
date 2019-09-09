@@ -9,11 +9,50 @@
 </head>
 
 <body>
-    <form method="post" action="/maket/">
+    <form id="f" method="post" action="/maket/">
         <input type="text" name="name" placeholder="Enter your name">
         <input type="number" name="marks" placeholder="Enter your marks">
         <input type="submit" value="Submit">
     </form>
 </body>
+
+<style>
+    input[type=text],
+    select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 250px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    input[type=number],
+    select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 250px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+        width: 20%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px 14px;
+        margin: 8px 480px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+</style>
 
 </html>
