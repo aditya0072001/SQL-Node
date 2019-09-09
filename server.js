@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 var app = express();
 
-var jsonParser = bodyParser.json();
+//var jsonParser = bodyParser.json();
 
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
