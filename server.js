@@ -16,10 +16,10 @@ app.get('/', (res, rep) => {
 });
 //databse connection details
 var myConnection = sql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: "aditya",
-    database: 'Blog'
+    host: 'remotemysql.com',
+    user: '8WJ7okvchy',
+    password: "sgwIt5bLTH",
+    database: '8WJ7okvchy'
 });
 //database connection
 myConnection.connect((err) => {
@@ -30,7 +30,7 @@ myConnection.connect((err) => {
 });
 //made database
 app.get('/createdb', (req, res) => {
-    let s = 'create database Blog';
+    let s = 'create database 8WJ7okvchy';
     myConnection.query(s, (err, result) => {
         if (err) throw err;
         res.send("Databse created");
@@ -64,4 +64,4 @@ app.get('/data', (res, rep) => {
     rep.send(r);
 });
 //port for server
-app.listen(3000, () => console.log("Server running on port 3000"));
+app.listen(process.env.PORT || 3000, () => console.log("Server running on port 3000"));
