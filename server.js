@@ -30,7 +30,7 @@ myConnection.connect((err) => {
 });
 //made database
 app.get('/createt', (req, res) => {
-    let s = 'CREATE TABLE Students';
+    let s = 'CREATE TABLE Students(id int auto_increment primary key,Sname varchar(45),Marks int)';
     myConnection.query(s, (err, result) => {
         if (err) throw err;
         res.send("Table created");
