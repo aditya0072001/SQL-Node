@@ -29,11 +29,11 @@ myConnection.connect((err) => {
     console.log("SQL Connected");
 });
 //made database
-app.get('/createdb', (req, res) => {
-    let s = 'create database 8WJ7okvchy';
+app.get('/createt', (req, res) => {
+    let s = 'CREATE TABLE Students';
     myConnection.query(s, (err, result) => {
         if (err) throw err;
-        res.send("Databse created");
+        res.send("Table created");
     });
 });
 //made table then inserted data
