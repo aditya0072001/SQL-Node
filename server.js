@@ -19,8 +19,7 @@ var myConnection = sql.createConnection({
     server: 'remotemysql.com',
     user: '8WJ7okvchy',
     password: "sgwIt5bLTH",
-    database: '8WJ7okvchy',
-    connect_timeout = 1000
+    database: '8WJ7okvchy'
 });
 //database connection
 myConnection.connect((err) => {
