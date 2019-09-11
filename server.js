@@ -45,7 +45,7 @@ app.post('/maket', urlencodedParser, (res, rep) => {
         Sname: name,
         Marks: marks
     };
-    let s = "INSERT INTO students SET ?";
+    let s = "INSERT INTO Students SET ?";
     myConnection.query(s, value, (err, result) => {
         if (err) throw err;
 
