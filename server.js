@@ -20,7 +20,7 @@ var myConnection = sql.createConnection({
     user: '8WJ7okvchy',
     password: "sgwIt5bLTH",
     database: '8WJ7okvchy',
-    connect_timeout=1000
+    connect_timeout = 1000
 });
 //database connection
 myConnection.connect((err) => {
@@ -31,7 +31,8 @@ myConnection.connect((err) => {
 });
 //made database
 app.get('/createt', (req, res) => {
-    let s = 'CREATE TABLE Students(id int auto_increment primary key,Sname varchar(45),Marks int)';
+    // let s = 'CREATE TABLE Students(id int auto_increment primary key,Sname varchar(45),Marks int)';
+    let s = "SET GLOBAL connect_timeout = 28800";
     myConnection.query(s, (err, result) => {
         if (err) throw err;
         res.send("Table created");
